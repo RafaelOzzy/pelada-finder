@@ -5,5 +5,4 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
-
+Game.create(neighborhood: "barra", date: Date.new(2023, 5, 6), time: Time.new(2023, 5, 6, 12, 0, 0), user: User.find(1))

@@ -1,9 +1,11 @@
 class GamesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :set_games, only: %i[show destroy]
+  before_action :set_game, only: %i[show update edit]
   before_action :game_params, only: %i[create]
 
+
   def index
+    @games = Game.all
   end
 
   # create in progress
@@ -23,6 +25,7 @@ class GamesController < ApplicationController
   end
 
   def show
+    @display_time = "#{@game.time.hour}h#{@game.time.min.zero? ? '00' : @game.time.min.to_s}"
   end
 
   def update
@@ -37,7 +40,7 @@ class GamesController < ApplicationController
     params.require(:game).permit(:neighborhood, :date, :time)
   end
 
-  def set_games
+  def set_game
     @game = Game.find(params[:id])
   end
 end

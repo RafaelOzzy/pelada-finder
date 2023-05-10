@@ -11,16 +11,16 @@ require 'faker'
 
 # Seed de User comentado para não roodar + de 1x
 # Todas as senhas são 123123
-# 5.times do
-#   Faker::Config.locale = 'pt-BR'
-#   User.create(email: Faker::Internet.email, password: "123123",
-#               name: Faker::Name.name, phone_number: Faker::PhoneNumber.cell_phone)
-# end
-# puts 'User seed done'
+5.times do
+  Faker::Config.locale = 'pt-BR'
+  User.create(email: Faker::Internet.email, password: "123123",
+              name: Faker::Name.name, phone_number: Faker::PhoneNumber.cell_phone)
+end
+puts 'User seed done'
 
 # Seed de User comentado para não roodar + de 1x
-# 5.times do
-#   Game.create(neighborhood: Faker::Address.city, date: Date.new(2023, 5, 6), time: Time.new(2023, 5, 6, 12, 0, 0), user: User.find(rand(1..5)))
-# end
+5.times do
+  Game.create(neighborhood: Faker::Address.city, date: Date.new(2023, 5, 6), time: Time.new(2023, 5, 6, 12, 0, 0), user: User.find(rand(1..5)))
+end
 
-# puts 'Game seed done'
+puts 'Game seed done'

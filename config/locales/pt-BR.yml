@@ -29,3 +29,13 @@ pt-BR:
   time:
     formats:
       default: "%Hh%M"
+  activerecord:
+    errors:
+      models:
+        game:
+          attributes:
+            neighborhood:
+              blank: "precisa estar preenchido!"
+    attributes:
+      game:
+        neighborhood: "Bairro"

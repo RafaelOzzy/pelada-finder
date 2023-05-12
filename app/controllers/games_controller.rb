@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :set_game, only: %i[show update edit]
+  before_action :set_game, only: %i[show update edit destroy]
   before_action :game_params, only: %i[create]
 
 
@@ -11,10 +11,18 @@ class GamesController < ApplicationController
   # create in progress
   # variavel newdate não sendo usada ainda.
   def create
-    # p newdate = DateTime.strptime(params[:game][:date], '%Y-%m-%d')
-    # @game = Game.new(game_params)
-    # @game.save
-    # redirect_to game_path(@game)
+    date = params[:game][:date].blank? ? nil : Date.strptime(params[:game][:date], '%Y-%m-%d')
+    time = params[:game][:time].blank? ? nil : Time.strptime(params[:game][:time], "%H:%M")
+    new_game = { neighborhood: params[:game][:neighborhood],
+                 date:,
+                 time:,
+                 user: current_user }
+    @game = Game.new(new_game)
+    if @game.save
+      redirect_to game_path(@game)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def new
@@ -32,6 +40,8 @@ class GamesController < ApplicationController
   end
 
   def destroy
+    @game.destroy
+    redirect_to games_path
   end
 
   private
@@ -42,6 +52,7 @@ class GamesController < ApplicationController
 
   def set_game
     @game = Game.find(params[:id])
+    @game_participants = GameParticipant.where(game_id: @game.id)
   end
 end
 

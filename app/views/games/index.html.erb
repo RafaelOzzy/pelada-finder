@@ -1,3 +1,16 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'banner.png' %>);">
+  <div class="container">
+    <p>"A PELADA É A MATRIZ DO FUTEBOL" - CHICO BUARQUE</p>
+    <% if user_signed_in? %>
+      <h1>BEM VINDO, </h1>
+      <h1><%= current_user.name %></h1>
+    <% else %>
+      <h1>ENCONTRE SUA PELADA</h1>
+    <% end %>
+  </div>
+</div>
+
+
 <div class="container pt-5" >
   <% @games.each do |game| %>
     <p><%= link_to game.neighborhood, game_path(game)  %>

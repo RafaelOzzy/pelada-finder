@@ -10,3 +10,13 @@
 .navbar-pelada-finder .navbar-brand img {
   width: 300px;
 }
+
+.navbar-pelada-finder .navbar-brand li {
+  font-family: "bebas neue";
+  font-size: 45px;
+}
+
+// nav li:not(:last-child)::after {
+//   content: " | ";
+//   margin-right: 5px;
+// }

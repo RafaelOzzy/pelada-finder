@@ -10,11 +10,22 @@
   </div>
 </div>
 
-
-<div class="container pt-5" >
-  <% @games.each do |game| %>
-    <p><%= link_to game.neighborhood, game_path(game)  %>
-  <% end %>
-  <hr>
-    <%= link_to "Criar uma pelada", new_game_path %>
+<div class="container pt-5 games-index">
+  <h1>Todas as peladas</h1>
+  <div class="container cards pt-5" >
+    <% @games.each do |game| %>
+      <%= link_to game_path(game), style: "text-decoration: none" do  %>
+          <div class="card-game">
+            <div class="card-game-infos">
+              <div>
+              <h2><%= "#{game.neighborhood} | #{l game.date, format: :long} | #{l game.time, format: :default}"  %></h2>
+              </div>
+            </div>
+            <%= image_tag "game_card_bg", alt: "Ipanema" %>
+          </div>
+      <% end %>
+    <% end %>
+ </div>
+ <hr>
+   <%= link_to "Criar uma pelada", new_game_path, style: "text-decoration:none; color: white; font-family: 'Soccer League', sans-serif; font-size: 40pt" %>
 </div>

@@ -1,0 +1,6 @@
+  <%= simple_form_for(@game) do |f| %>
+  <%= f.input :neighborhood, required: true %>
+  <%= f.date_field :date, required: true %>
+  <%= f.time_field :time, required: true %>
+  <%= f.submit %>
+<% end %>

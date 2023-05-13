@@ -2,14 +2,17 @@
   <p><%= @game.neighborhood %></p>
   <p><%= l @game.date, format: :long %></p>
   <p><%= l @game.time, format: :default %></p>
+
   <div class="container">
     <% @game_participants.each do |p| %>
       <li> <%= p.user.name %> </li>
     <% end %>
   </div>
+
   <%= link_to 'Ver todas as peladas', root_path %>
   <% if (current_user == @game.user) %>
   <%= link_to 'Apagar jogo', game_path(@game), data: {turbo_method: :delete, turbo_confirm: "Tem certeza que quer deletar a pelada?"} %>
+  <%= link_to 'Editar jogo', edit_game_path(@game) %>
   <% end %>
   <%= button_to 'Participar do jogo', game_game_participants_path(@game), method: :post %>
 </div>

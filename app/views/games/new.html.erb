@@ -1,9 +1,4 @@
 <div class="container mt-3 col-12">
-  <h2>Create a new Game Form</h1>
-  <%= simple_form_for(@game) do |f| %>
-  <%= f.input :neighborhood, required: true %>
-  <%= f.date_field :date, required: true %>
-  <%= f.time_field :time, required: true %>
-  <%= f.submit %>
-<% end %>
+  <h2>Criar uma nova pelada</h1>
+  <%= render 'form' %>
 </div>

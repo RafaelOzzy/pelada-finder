@@ -6,5 +6,8 @@ class GameParticipantsController < ApplicationController
   end
 
   def destroy
+    @game_participant = GameParticipant.find(params[:id])
+    @game_participant.destroy
+    redirect_to game_path(@game_participant.game)
   end
 end

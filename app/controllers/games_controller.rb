@@ -37,6 +37,11 @@ class GamesController < ApplicationController
   end
 
   def update
+    if @game.update(game_params)
+      redirect_to game_path(@game)
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy

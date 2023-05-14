@@ -1,14 +1,43 @@
 @import "game_card";
 
-.games-index h1 {
+.all-games {
+  border-left: 1px solid white;
+  padding-left: 30px;
+}
+
+#whistle-icon {
+  width: 50px;
+}
+
+.all-games h1 {
   font-family: 'Soccer League', sans-serif;
   color: white;
   font-size: 50pt;
 }
 
-.cards {
+.my-games p {
+  font-family: 'Bebas Neue', sans-serif;
+  color: white;
+  font-size: 35pt;
+  opacity: 0.6;
+  margin: 0;
+}
+
+.my-games h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  color: white;
+  font-size: 25pt;
+}
+
+.all-games-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.my-games-cards {
+  display: grid;
+  grid-template-columns: 1fr;
   grid-gap: 16px;
 }
 
@@ -36,13 +65,13 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }

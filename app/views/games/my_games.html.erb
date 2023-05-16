@@ -1,0 +1,14 @@
+ <div class="my-games-cards container">
+          <% @user_games.each do |game| %>
+            <%= link_to game_path(game), style: "text-decoration: none" do  %>
+                <div class="card-game">
+                  <div class="card-game-infos">
+                    <div>
+                    <h2><%= "#{game.neighborhood} | #{l game.date, format: :long} | #{l game.time, format: :default}"  %></h2>
+                    </div>
+                  </div>
+                  <%= image_tag "game_card_bg.jpg", alt: "Ipanema" %>
+                </div>
+            <% end %>
+          <% end %>
+        </div>

@@ -50,6 +50,11 @@ class GamesController < ApplicationController
     redirect_to games_path
   end
 
+  def my_games
+    @user = current_user
+    @user_games = Game.where(user: @user)
+  end
+
   private
 
   def game_params

@@ -34,8 +34,8 @@
             <% end %>
           <% end %>
         </div>
-        <% if @user_games.size = 3 %>
-          <%= link_to "Ver todas as peladas", new_game_path, style: "text-decoration:none; color: white; font-family: 'Soccer League', sans-serif; font-size: 25pt; opacity: 0.6" %>
+        <% if @user_games.size == 3 %>
+          <%= link_to "Ver todas as peladas", my_games_path, style: "text-decoration:none; color: white; font-family: 'Soccer League', sans-serif; font-size: 25pt; opacity: 0.6" %>
         <% end %>
       <% else  %>
         <div>

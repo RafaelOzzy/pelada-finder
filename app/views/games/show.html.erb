@@ -18,9 +18,11 @@
 
   <%= link_to 'Ver todas as peladas', root_path, style: "color: white;" %>
   <% if (current_user == @game.user) %>
-  <%= link_to 'Apagar jogo', game_path(@game), style: "color: white;", data: {turbo_method: :delete, turbo_confirm: "Tem certeza que quer deletar a pelada?"} %>
-  <%= link_to 'Editar jogo', edit_game_path(@game), style: "color: white;" %>
+    <%= link_to 'Apagar jogo', game_path(@game), style: "color: white;", data: {turbo_method: :delete, turbo_confirm: "Tem certeza que quer deletar a pelada?"} %>
+    <%= link_to 'Editar jogo', edit_game_path(@game), style: "color: white;" %>
   <% end %>
-  <%= button_to 'Participar do jogo', game_game_participants_path(@game), method: :post %>
 
+  <% unless @game_participants.pluck(:user_id).include? current_user.id %>
+    <%= button_to 'Participar do jogo', game_game_participants_path(@game), method: :post %>
+  <% end %>
 </div>

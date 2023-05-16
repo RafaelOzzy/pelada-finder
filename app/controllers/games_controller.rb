@@ -6,7 +6,7 @@ class GamesController < ApplicationController
   def index
     @games = Game.all
     @user = current_user
-    @user_games = Game.where(user: @user)
+    @user_games = Game.where(user: @user).limit(3)
   end
 
   # create in progress

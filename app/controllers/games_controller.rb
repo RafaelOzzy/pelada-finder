@@ -3,10 +3,10 @@ class GamesController < ApplicationController
   before_action :set_game, only: %i[show update edit destroy]
   before_action :game_params, only: %i[create]
 
-
   def index
     @games = Game.all
     @user = current_user
+    @user_games = Game.where(user: @user)
   end
 
   # create in progress

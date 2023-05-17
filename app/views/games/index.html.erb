@@ -11,15 +11,30 @@
 </div>
 <div class="container pt-3 ">
   <div class="row">
-    <div class="col-12 col-lg-4 my-games px-4">
-      <div class="d-flex justify-content-between align-items-center mb-0">
+    <div class="col-12 col-lg-4 my-games px-3">
+      <div class="d-flex justify-content-between align-items-center mb-3">
         <%= image_tag "squared-white-whistle.png", id:"whistle-icon" %>
-        <h1 id="minhas-peladas"  class="mb-0">Minhas peladas</h1>
+        <h1 class="mb-0">Minhas peladas</h1>
       </div>
-      <div class="mt-3">
-        <%= link_to "Criar pelada", new_game_path, style: "text-decoration:none; color: white; font-family: 'Soccer League', sans-serif; font-size: 25pt; opacity: 0.6" %>
+
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <div class="scoreboard created">
+          <h2> Criadas </h2>
+          <p> <%= @user_games.size %> </p>
+        </div>
+
+        <div class="scoreboard enrolled">
+          <h2> Participando </h2>
+          <p> <%= @user_enrolled.size %> </p>
+        </div>
       </div>
+
+
+
       <% if @user_games.size > 0 %>
+        <div class="mt-3">
+        <%= link_to "Criar pelada", new_game_path, style: "text-decoration:none; color: white; font-family: 'Soccer League', sans-serif; font-size: 25pt; opacity: 0.6" %>
+        </div>
         <div class="my-games-cards">
           <% @user_games.each do |game| %>
             <%= link_to game_path(game), style: "text-decoration: none" do  %>
@@ -42,6 +57,9 @@
           <p>Você ainda não</p>
           <p>possui nehuma</p>
           <p>pelada</p>
+        </div>
+        <div class="mt-3">
+          <%= link_to "Criar pelada", new_game_path, style: "text-decoration:none; color: white; font-family: 'Soccer League', sans-serif; font-size: 25pt; opacity: 0.6" %>
         </div>
       <% end %>
 

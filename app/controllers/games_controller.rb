@@ -7,6 +7,7 @@ class GamesController < ApplicationController
     @games = Game.all
     @user = current_user
     @user_games = Game.where(user: @user).limit(3)
+    @user_enrolled = GameParticipant.where(user: @user)
   end
 
   # create in progress

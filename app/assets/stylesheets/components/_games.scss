@@ -6,7 +6,7 @@
 }
 
 #whistle-icon {
-  width: 50px;
+  width: 80px;
 }
 
 .all-games h1 {
@@ -24,9 +24,21 @@
 }
 
 .my-games h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  color: white;
+  font-size: 30pt;
+  letter-spacing: 5px;
+}
+
+.scoreboard h2 {
   font-family: 'Soccer League', sans-serif;
   color: white;
-  font-size: 20pt;
+  font-size: 25pt;
+  opacity: 0.6;
+}
+
+.enrolled {
+  text-align: right;
 }
 
 .all-games-cards {

@@ -84,6 +84,24 @@
   font-size: 0.75rem;
 }
 
+.remove-marker {
+  list-style: none;
+}
+
+.username-font {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+}
+
+
+.custom-hr {
+  border: none;
+  height: 1pt;
+  background-color:white;
+  opacity: 1;
+
+}
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {

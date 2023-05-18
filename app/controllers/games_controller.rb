@@ -15,7 +15,7 @@ class GamesController < ApplicationController
   def create
     date = params[:game][:date].blank? ? nil : Date.strptime(params[:game][:date], '%Y-%m-%d')
     time = params[:game][:time].blank? ? nil : Time.strptime(params[:game][:time], "%H:%M")
-    new_game = { neighborhood: params[:game][:neighborhood],
+    new_game = { address: params[:game][:address],
                  date:,
                  time:,
                  user: current_user }
@@ -59,7 +59,7 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:neighborhood, :date, :time, :id)
+    params.require(:game).permit(:address, :date, :time, :id)
   end
 
   def set_game

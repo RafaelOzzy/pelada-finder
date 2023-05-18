@@ -12,7 +12,7 @@
       </div>
     </div>
     <div>
-      <h3 class="mb-0">BAIRRO: <%= @game.neighborhood.upcase %></h3>
+      <h3 class="mb-0">BAIRRO: <%= @game.address.upcase %></h3>
       <div class="d-flex align-items-center">
         <p style="text-transform: uppercase;">DIA: <%= l @game.date, format: :long %> |</p>
         <p class="ml-1">HORA: <%= l @game.time, format: :default %></p>

@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-# Game.create(neighborhood: "barra", date: Date.new(2023, 5, 6), time: Time.new(2023, 5, 6, 12, 0, 0), user: User.find(1))
+# Game.create(address: "barra", date: Date.new(2023, 5, 6), time: Time.new(2023, 5, 6, 12, 0, 0), user: User.find(1))
 
 require 'faker'
 
@@ -19,8 +19,8 @@ end
 puts 'User seed done'
 
 # Seed de User comentado para não roodar + de 1x
-5.times do
-  Game.create(neighborhood: Faker::Address.city, date: Date.new(2023, 5, 6), time: Time.new(2023, 5, 6, 12, 0, 0), user: User.find(rand(1..5)))
-end
+# 5.times do
+#   Game.create(address: Faker::Address.street_name, date: Date.new(2023, 5, 6), time: Time.new(2023, 5, 6, 12, 0, 0), user: User.find(rand(1..5)))
+# end
 
-puts 'Game seed done'
+# puts 'Game seed done'

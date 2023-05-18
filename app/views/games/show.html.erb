@@ -4,7 +4,7 @@
       <h1 class="mb-0">PELADA #00<%= @game.id %>
       </h1>
       <div class="d-flex align-items-center">
-        <p class="mb-0">CRIADA POR <%= @game.user.name.upcase %> |</p>
+        <p class="mb-0">CRIADA POR <%= @game.user.name.try(:upcase) %> |</p>
         <% if (current_user == @game.user) %>
           <%= link_to 'Editar', edit_game_path(@game), style: "color: white; text-decoration: none;", class: "links-show" %>
           <%= link_to 'Apagar', game_path(@game), style: "color: white; text-decoration: none",class: "links-show", data: {turbo_method: :delete, turbo_confirm: "Tem certeza que quer deletar a pelada?"} %>
@@ -12,20 +12,31 @@
       </div>
     </div>
     <div>
-      <h3 class="mb-0">BAIRRO: <%= @game.neighborhood.upcase %></h3>
+      <h3 class="mb-0">ENDEREÇO: <%= @game.address.upcase %></h3>
       <div class="d-flex align-items-center">
         <p style="text-transform: uppercase;">DIA: <%= l @game.date, format: :long %> |</p>
         <p class="ml-1">HORA: <%= l @game.time, format: :default %></p>
       </div>
     </div>
     <div class="container">
-      <% @game_participants.each do |p| %>
-        <li> <%= p.user.name %>
-        <% if p.user == current_user %>
-          <%= link_to 'Sair do jogo', game_participant_path(p), data: {turbo_method: :delete, turbo_confirm: 'Vai pipocar?' } %>
-        <% end %>
-        </li>
-      <% end %>
+      <hr class="custom-hr">
+      <h3>PARTICIPANTES</h3>
+        <div class="container">
+          <div class="row">
+            <% @game_participants.each do |p| %>
+              <div class="col-sm-3">
+                <div class="d-flex flex-column username-font">
+                  <li class="remove-marker"> <%= image_tag "shirt.png", height: '30' %>  <%= p.user.name.upcase %>
+                     <% if p.user == current_user %>
+                      <p> <%= link_to 'Sair do jogo', game_participant_path(p), style: "color: white; text-decoration: none;", class: "links-show", data: {turbo_method: :delete, turbo_confirm: 'Vai pipocar?' } %> </p>
+                    <% end %>
+                  </li>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <hr class="custom-hr">
     </div>
   </div>
 

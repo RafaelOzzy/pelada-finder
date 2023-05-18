@@ -34,8 +34,8 @@ pt-BR:
       models:
         game:
           attributes:
-            neighborhood:
+            address:
               blank: "precisa estar preenchido!"
     attributes:
       game:
-        neighborhood: "Bairro"
+        address: "Endereço"

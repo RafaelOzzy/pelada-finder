@@ -1,14 +1,32 @@
- <div class="my-games-cards container">
-          <% @user_games.each do |game| %>
-            <%= link_to game_path(game), style: "text-decoration: none" do  %>
-                <div class="card-game">
-                  <div class="card-game-infos">
-                    <div>
-                    <h2><%= "#{game.address} | #{l game.date, format: :long} | #{l game.time, format: :default}"  %></h2>
-                    </div>
-                  </div>
-                  <%= image_tag "game_card_bg.jpg", alt: "Ipanema" %>
+ <div class="my-games-cards container my-games-font">
+  <div>
+    <h1>PELADAS CRIADAS</h1>
+    <p><%= current_user.name %></p>
+  </div>
+  <div class="container">
+    <div class="row">
+      <% @user_games.each do |game| %>
+        <div class="col-md-6">
+          <h1 class="mb-0">PELADA #00<%= game.id %></h1>
+          <h3 class="mb-0"><%= game.address.upcase %></h3>
+        <div class="d-flex">
+          <p style="text-transform: uppercase;">DIA: <%= l game.date, format: :long %> |</p>
+          <p class="ml-1">HORA: <%= l game.time, format: :default %></p>
+        </div>
+          <%= link_to game_path(game), style: "text-decoration: none" do  %>
+            <div class="card-game">
+              <div class="card-game-infos">
+                <div>
+                  <h2><%= "#{game.address} | #{l game.date, format: :long} | #{l game.time, format: :default}"  %></h2>
                 </div>
-            <% end %>
+              </div>
+              <%= image_tag "game_card_bg.jpg", alt: "Ipanema" %>
+            </div>
+            <%= link_to 'Editar |', edit_game_path(game), style: "color: white; text-decoration: none;" %>
+            <%= link_to 'Apagar', game_path(game), style: "color: white; text-decoration: none", data: {turbo_method: :delete, turbo_confirm: "Tem certeza que quer deletar a pelada?"} %>
           <% end %>
         </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'banner.png' %>);">
+<div class="banner mt-5" style="background-image: url(<%= image_path 'banner.png' %>);">
   <div class="container">
     <p>"A PELADA É A MATRIZ DO FUTEBOL" - CHICO BUARQUE</p>
     <% if user_signed_in? %>
@@ -42,7 +42,7 @@
                     <h2><%= "#{game.address} | #{l game.date, format: :long} | #{l game.time, format: :default}"  %></h2>
                     </div>
                   </div>
-                    <%= image_tag "bg_db/futebol_backimage#{rand(1..33)}.jpg", alt:"Imagem Peladas" %> %>
+                    <%= image_tag "bg_db/futebol_backimage#{rand(1..33)}.jpg", alt:"Imagem Peladas" %>
                 </div>
             <% end %>
           <% end %>

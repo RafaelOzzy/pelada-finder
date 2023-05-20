@@ -8,6 +8,10 @@ class GameParticipantsController < ApplicationController
   def destroy
     @game_participant = GameParticipant.find(params[:id])
     @game_participant.destroy
-    redirect_to game_path(@game_participant.game)
+    if request.referer == 'http://localhost:3000/my_games'
+      redirect_to my_games_path
+    else
+      redirect_to game_path(@game_participant.game)
+    end
   end
 end

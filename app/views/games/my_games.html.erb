@@ -1,6 +1,6 @@
- <div class="my-games-cards container my-games-font margin-top">
+<div class="container my-games-font margin-top">
   <div>
-    <h1 class="mb-0">PELADAS CRIADAS</h1>
+    <h1 class="mb-0">PELADAS CRIADAS POR VOCÊ</h1>
     <p id="username">JOGADOR: <%= current_user.name.upcase %></p>
   </div>
   <div class="container p-0">
@@ -30,12 +30,9 @@
       <% end %>
     </div>
   </div>
-  <hr>
+
   <% if @user_enrolled_games.size > 0 %>
-    <div>
-      <h1 class="mb-0">PELADAS PARTIPANDO</h1>
-      <p id="username">JOGADOR: <%= current_user.name.upcase %></p>
-    </div>
+    <h1 class="mt-3">PELADAS QUE VOCÊ ESTÁ PARTIPANDO</h1>
     <div class="container p-0">
       <div class="row">
         <% @user_enrolled_games.each_with_index do |game, index| %>
@@ -51,7 +48,9 @@
                 <%= image_tag "bg_db/futebol_backimage#{rand(1..33)}.jpg", alt:"Imagem Peladas" %>
               </div>
               <div class="my-games-link">
-              <%= link_to 'Sair do jogo', game_participant_path(GameParticipant.where(user: @user, game: game).last), style: "color: white; text-decoration: none;", class: "links-show", data: {turbo_method: :delete, turbo_confirm: 'Vai pipocar?' } %>
+                <%= link_to 'Sair do jogo', game_participant_path(GameParticipant.where(user: @user, game: game).last),
+                style: "color: white; text-decoration: none;", data: {turbo_method: :delete, turbo_confirm: 'Vai pipocar?' } %> </p>
+              </div>
             <% end %>
           </div>
             <% if index.odd? %>

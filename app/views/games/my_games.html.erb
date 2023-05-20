@@ -15,12 +15,7 @@
         </div>
           <%= link_to game_path(game), style: "text-decoration: none" do  %>
             <div class="card-game">
-              <div class="card-game-infos">
-                <div>
-                  <h2><%= "#{game.address} | #{l game.date, format: :long} | #{l game.time, format: :default}"  %></h2>
-                </div>
-              </div>
-              <%= image_tag "game_card_bg.jpg", alt: "Ipanema"%>
+              <%= image_tag "bg_db/futebol_backimage#{rand(1..33)}.jpg", alt:"Imagem Peladas" %>
             </div>
             <div class="my-games-link">
             <%= link_to 'Editar |', edit_game_path(game), style: "color: white; text-decoration: none;" %>
@@ -35,4 +30,36 @@
       <% end %>
     </div>
   </div>
+  <hr>
+  <% if @user_enrolled_games.size > 0 %>
+    <div>
+      <h1 class="mb-0">PELADAS PARTIPANDO</h1>
+      <p id="username">JOGADOR: <%= current_user.name.upcase %></p>
+    </div>
+    <div class="container p-0">
+      <div class="row">
+        <% @user_enrolled_games.each_with_index do |game, index| %>
+          <div class="col-md-6">
+            <h3 class="mb-0">PELADA #00<%= game.id %></h3>
+            <h5 class="mb-0"><%= game.address.upcase %></h5>
+          <div class="d-flex">
+            <p style="text-transform: uppercase;">DIA: <%= l game.date, format: :long %> |</p>
+            <p class="ml-1">HORA: <%= l game.time, format: :default %></p>
+          </div>
+            <%= link_to game_path(game), style: "text-decoration: none" do  %>
+              <div class="card-game">
+                <%= image_tag "bg_db/futebol_backimage#{rand(1..33)}.jpg", alt:"Imagem Peladas" %>
+              </div>
+              <div class="my-games-link">
+              <%= link_to 'Sair do jogo', game_participant_path(GameParticipant.where(user: @user, game: game).last), style: "color: white; text-decoration: none;", class: "links-show", data: {turbo_method: :delete, turbo_confirm: 'Vai pipocar?' } %>
+            <% end %>
+          </div>
+            <% if index.odd? %>
+            <div class="w-100"></div>
+            <hr class="my-4 custom-hr">
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </div>

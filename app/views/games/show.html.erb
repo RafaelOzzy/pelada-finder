@@ -18,7 +18,7 @@
         <p class="ml-1">HORA: <%= l @game.time, format: :default %></p>
       </div>
     </div>
-    <div class="container">
+    <div class="container p-0">
       <hr class="custom-hr">
       <h3>PARTICIPANTES</h3>
         <div class="container">
@@ -39,11 +39,15 @@
         <hr class="custom-hr">
     </div>
   </div>
-
+  <div class="join-game-button">
+    <% unless @game_participants.pluck(:user_id).include? current_user.id %>
+      <hr class="custom-hr mb-0">
+      <%= button_to 'QUERO PARTICIPAR', game_game_participants_path(@game), style: "color: white; text-decoration: none; background-color: transparent; border: none", method: :post %>
+      <hr class="custom-hr mt-0">
+    <% end %>
+  </div>
   <%= link_to 'Ver todas as peladas', root_path, style: "color: white;" %>
-
-
-  <% unless @game_participants.pluck(:user_id).include? current_user.id %>
-    <%= button_to 'Participar do jogo', game_game_participants_path(@game), method: :post %>
-  <% end %>
 </div>
+
+
+teste

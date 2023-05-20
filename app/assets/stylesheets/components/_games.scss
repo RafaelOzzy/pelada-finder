@@ -95,14 +95,40 @@
   font-size: 1.1rem;
 }
 
+.margin-top {
+  margin-top: 100px;
+  padding-left: 12px;
+}
+
+.my-games-font h1, h3, h5, p{
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+}
+
+#username {
+  font-size: 25px;
+}
+
+.my-games-link {
+  margin-top: 10px;
+}
 
 .custom-hr {
   border: none;
   height: 1pt;
   background-color:white;
   opacity: 1;
-
+  width: 100%;
 }
+
+.join-game-button{
+  text-align: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  font-size: 40px;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {

@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[index show]
+  skip_before_action :authenticate_user!, only: %i[index]
   before_action :set_game, only: %i[show update edit destroy show]
   before_action :game_params, only: %i[create]
 

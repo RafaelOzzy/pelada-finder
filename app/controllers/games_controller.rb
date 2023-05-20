@@ -8,6 +8,8 @@ class GamesController < ApplicationController
     @user = current_user
     @user_games = Game.where(user: @user).limit(3)
     @user_enrolled = GameParticipant.where(user: @user)
+    @created_display = @user_games.size >= 10 ? @user_games.size : "0#{@user_games.size}"
+    @enrolled_display = @user_enrolled.size >= 10 ? @user_enrolled.size : "0#{@user_enrolled.size}"
   end
 
   # create in progress

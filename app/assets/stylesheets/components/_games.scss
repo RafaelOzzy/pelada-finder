@@ -1,6 +1,10 @@
 @import "game_card";
 @import "my_games";
 
+.after-navbar {
+  margin-top: 80px;
+}
+
 .all-games {
   border-left: 1px solid white;
   padding-left: 30px;

@@ -20,12 +20,17 @@
       <div class="d-flex justify-content-between align-items-center mb-3">
         <div class="scoreboard created">
           <h2> Criadas </h2>
-          <p> <%= @user_games.size %> </p>
+          <p> <%= @created_display %> </p>
+        </div>
+
+        <div class="scoreboard">
+          <h2 style="opacity: 0;">.</h2>
+          <p>|</p>
         </div>
 
         <div class="scoreboard enrolled">
           <h2> Participa </h2>
-          <p> <%= @user_enrolled.size %> </p>
+          <p> <%= @enrolled_display %> </p>
         </div>
       </div>
 

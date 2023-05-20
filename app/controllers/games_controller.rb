@@ -23,6 +23,7 @@ class GamesController < ApplicationController
                  user: current_user }
     @game = Game.new(new_game)
     if @game.save
+      GameParticipant.create(game: @game, user: current_user)
       redirect_to game_path(@game)
     else
       render :new, status: :unprocessable_entity

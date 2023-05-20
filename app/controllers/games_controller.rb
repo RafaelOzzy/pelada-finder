@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
-  before_action :set_game, only: %i[show update edit destroy]
+  before_action :set_game, only: %i[show update edit destroy show]
   before_action :game_params, only: %i[create]
 
   def index
@@ -38,7 +38,13 @@ class GamesController < ApplicationController
   end
 
   def show
+    @game = Game.find(params[:id])
     @display_time = "#{@game.time.hour}h#{@game.time.min.zero? ? '00' : @game.time.min.to_s}"
+    @markers =[
+      {
+        lat: @game.latitude,
+        lng: @game.longitude
+      }]
   end
 
   def update
@@ -69,7 +75,7 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:address, :date, :time, :id)
+    params.require(:game).permit(:address, :date, :time, :latitude, :longitude)
   end
 
   def set_game

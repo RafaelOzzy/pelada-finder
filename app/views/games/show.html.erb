@@ -27,7 +27,7 @@
               <div class="col-sm-3">
                 <div class="d-flex flex-column username-font">
                   <li class="remove-marker"> <%= image_tag "shirt.png", height: '30' %>  <%= p.user.name.upcase %>
-                     <% if p.user == current_user %>
+                    <% if p.user == current_user %>
                       <p> <%= link_to 'Sair do jogo', game_participant_path(p), style: "color: white; text-decoration: none;", class: "links-show", data: {turbo_method: :delete, turbo_confirm: 'Vai pipocar?' } %> </p>
                     <% end %>
                   </li>
@@ -37,6 +37,11 @@
           </div>
         </div>
         <hr class="custom-hr">
+    </div>
+    <div style="width: 100%; height: 600px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
   </div>
   <div class="join-game-button">

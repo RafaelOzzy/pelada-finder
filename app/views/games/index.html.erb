@@ -41,7 +41,7 @@
         <div class="my-games-cards">
           <% @user_games.each do |game| %>
             <%= link_to game_path(game), style: "text-decoration: none" do  %>
-                <div class="card-game">
+                <div class="card-game index-card-game">
                   <div class="card-game-infos">
                     <div>
                     <h2><%= "#{game.address} | #{l game.date, format: :long} | #{l game.time, format: :default}"  %></h2>
@@ -63,7 +63,7 @@
           <p>pelada</p>
         </div>
         <div class="mt-3">
-          <%= link_to "Criar pelada", new_game_path, style: "padding: 10px; border: 2px solid rgba(255, 255, 255, 0.6); text-decoration:none; color: white; font-family: 'Soccer League', sans-serif; font-size: 25pt; opacity: 1" %>
+          <%= link_to "Criar pelada", new_game_path, style: "text-decoration:none; color: white; font-family: 'Soccer League', sans-serif; font-size: 25pt; opacity: 0.6" %>
         </div>
       <% end %>
 
@@ -74,7 +74,7 @@
           <div class="all-games-cards" >
               <% @games.each do |game| %>
                 <%= link_to game_path(game), style: "text-decoration: none" do  %>
-                    <div class="card-game">
+                    <div class="card-game index-card-game">
                       <div class="card-game-infos">
                         <div>
                         <h2><%= "#{game.address} | #{l game.date, format: :long} | #{l game.time, format: :default}"  %></h2>

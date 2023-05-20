@@ -35,8 +35,8 @@
       </div>
 
       <% if @user_games.size > 0 %>
-        <div class="mt-3">
-        <%= link_to "Criar pelada", new_game_path, style: "text-decoration:none; color: white; font-family: 'Soccer League', sans-serif; font-size: 25pt; opacity: 0.6" %>
+        <div class="mt-3 mb-3">
+        <%= link_to "Criar pelada", new_game_path, style: "padding: 10px; border: 2px solid rgba(255, 255, 255, 0.6); text-decoration:none; color: white; font-family: 'Soccer League', sans-serif; font-size: 25pt; opacity: 1" %>
         </div>
         <div class="my-games-cards">
           <% @user_games.each do |game| %>
@@ -48,7 +48,8 @@
                     </div>
                   </div>
                     <%= image_tag "bg_db/futebol_backimage#{rand(1..33)}.jpg", alt:"Imagem Peladas" %>
-                </div>
+                  </div>
+                  <%= link_to 'Editar', edit_game_path(game), style: "color: white; text-decoration: none;" %>
             <% end %>
           <% end %>
         </div>

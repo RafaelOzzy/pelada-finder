@@ -26,7 +26,7 @@
             <% @game_participants.each do |p| %>
               <div class="col-sm-3">
                 <div class="d-flex flex-column username-font">
-                  <li class="remove-marker"> <%= image_tag "shirt.png", height: '30' %>  <%= p.user.name.upcase %>
+                  <li class="remove-marker mb-3"> <%= image_tag "shirt.png", height: '30' %>  <%= p.user.name.upcase %>
                     <% if p.user == current_user %>
                       <p> <%= link_to 'Sair do jogo', game_participant_path(p), style: "color: white; text-decoration: none;", class: "links-show", data: {turbo_method: :delete, turbo_confirm: 'Vai pipocar?' } %> </p>
                     <% end %>

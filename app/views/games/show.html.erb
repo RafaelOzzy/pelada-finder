@@ -4,7 +4,7 @@
       <h1 class="mb-0">PELADA #00<%= @game.id %>
       </h1>
       <div class="d-flex align-items-center">
-        <p class="mb-0">CRIADA POR <%= @game.user.name.try(:upcase) %> |</p>
+        <p class="mb-0">CRIADA POR <%= @game.user.name.try(:upcase) %> </p>
         <% if (current_user == @game.user) %>
           <%= link_to 'Editar', edit_game_path(@game), style: "color: white; text-decoration: none;", class: "links-show" %>
           <%= link_to 'Apagar', game_path(@game), style: "color: white; text-decoration: none",class: "links-show", data: {turbo_method: :delete, turbo_confirm: "Tem certeza que quer deletar a pelada?"} %>
@@ -48,6 +48,3 @@
   </div>
   <%= link_to 'Ver todas as peladas', root_path, style: "color: white;" %>
 </div>
-
-
-teste

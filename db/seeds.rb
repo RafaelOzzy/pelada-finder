@@ -26,7 +26,7 @@ end
 address = ["Rio de Janeiro, Rua Visconde de Piraja", "Rua da Passagem, Rio de janeiro", "Av das Americas, rio de janeiro", "Av atlantica, rio de janeiro", "Av Brasil, Rio de janeiro"]
 
 5.times do
-game = Game.create(address: address[rand(1..5)], date: Date.new(2023, 5, 6), time: Time.new(2023, 5, 6, 12, 0, 0), user: User.all.sample)
+game = Game.create(address: address.sample, date: Date.new(2023, 5, 6), time: Time.new(2023, 5, 6, 12, 0, 0), user: User.all.sample)
 10.times do
   GameParticipant.create(game: game, user: User.all.sample)
 end

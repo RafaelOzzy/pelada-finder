@@ -57,6 +57,13 @@ class GamesController < ApplicationController
   def my_games
     @user = current_user
     @user_games = Game.where(user: @user)
+    @user_enrolled = GameParticipant.where(user: @user)
+    @user_enrolled_games = []
+    @user_enrolled.each do |p|
+      if p.game.user != @user
+        @user_enrolled_games << p.game
+      end
+    end
   end
 
   private
